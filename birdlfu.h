@@ -21,4 +21,23 @@ typedef unsigned long long int int64;
 #define $c (char *)
 #define $i (int)
 
+typedef int8 Dir[64];
+typedef int8 File[32];
+struct s_entry{
+    File *file;
+    Dir *dir;
+};
+
+typedef struct s_entry Entry;
+struct s_database{
+    Entry *entries;
+    int16 cap;
+    int16 num;
+};
+
+typedef struct s_database Database;
+Database mkdatabase(int16);
+void addtodb();
+void destroydb();
+void showdb(Database);
 int main(int,char**);
